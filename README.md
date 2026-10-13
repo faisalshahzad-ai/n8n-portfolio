@@ -18,6 +18,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 10 | AI-Powered Multi-Gmail Email Response Automation | Reads incoming emails from multiple Gmail accounts, uses an AI agent to write a professional reply and sends it back to the sender automatically | n8n, Gmail, Groq AI Agent | [10-ai-multi-gmail-email-auto-reply.json](10-ai-multi-gmail-email-auto-reply.json) |
 | 11 | AI-Powered Email Classification & Automated Response System | Reads new Gmail emails, uses an AI text classifier to sort them into categories such as orders, jobs, complaints, payments, refunds and support, sends an automatic reply, marks the email as read and adds a label | n8n, Gmail, Groq AI, Text Classifier | [11-ai-email-classification-auto-response.json](11-ai-email-classification-auto-response.json) |
 | 12 | AI-Powered Multi-Gmail Email Auto-Reply & Management Automation | Monitors three Gmail accounts at once, uses an AI agent to write a professional reply to each new email, marks the message as read and adds a label to keep every inbox organised | n8n, Gmail, Groq AI Agent | [12-ai-multi-gmail-auto-reply-management.json](12-ai-multi-gmail-auto-reply-management.json) |
+| 13 | AI-Powered Intelligent Email Triage & Auto-Reply Automation | Reads each new Gmail email, uses an AI agent to detect job or personally important messages, and sends a professional automatic reply only to the rest | n8n, Gmail, Groq AI Agent | [13-ai-intelligent-email-triage-auto-reply.json](13-ai-intelligent-email-triage-auto-reply.json) |
 
 ## Workflow Screenshots
 
@@ -57,6 +58,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Untitled design (8)" src="https://github.com/user-attachments/assets/4b75ec5e-02de-429d-93ac-6f362dff56e9" />
 ### 12 - AI Multi-Gmail Auto Reply & Management
 <img width="1280" height="769" alt="Untitled design (9)" src="https://github.com/user-attachments/assets/542e14ae-f376-4cc5-9674-e38fbf0eaa48" />
+### 13 - AI Intelligent Email Triage & Auto Reply
+<img width="1280" height="769" alt="Untitled design (10)" src="https://github.com/user-attachments/assets/9ced59b4-30f5-477e-b83b-7d7293e368c6" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
