@@ -22,6 +22,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 14 | Google Maps Business Lead Data Automation | Fetches a Google Maps search results page for a business type and city, removes duplicates, limits the batch, and saves the collected data into Google Sheets | n8n, HTTP Request, JavaScript, Google Sheets | [14-google-maps-business-lead-data-automation.json](14-google-maps-business-lead-data-automation.json) |
 | 15 | AI Lead Qualification & Routing System | Receives leads through a webhook, validates them, syncs contacts and deals in HubSpot, scores leads with an AI chain, alerts the sales team on Slack, emails leads, logs them to Google Sheets, and sends a daily lead report | n8n, HubSpot, OpenAI, Slack, Gmail, Google Sheets | [15-ai-lead-qualification-routing-system.json](15-ai-lead-qualification-routing-system.json) |
 | 16 | AI Email Triage & Auto-Reply System | Watches incoming Gmail messages, skips newsletters and no-reply senders, classifies each email with AI, creates HubSpot contacts, drafts sales and support replies in Gmail, forwards billing emails, alerts the team on Slack, logs everything to Google Sheets, and sends a daily summary | n8n, Gmail, OpenAI, HubSpot, Slack, Google Sheets | [16-ai-email-triage-auto-reply-system.json](16-ai-email-triage-auto-reply-system.json) |
+| 17 | AI Email Triage — Error Handling & Alerts | Catches failures from the email triage workflow with an Error Trigger and sends an alert to Slack with the workflow name and error message | n8n, Slack | [17-ai-email-triage-error-handling-alerts.json](17-ai-email-triage-error-handling-alerts.json) |
 
 ## Workflow Screenshots
 
@@ -69,6 +70,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Untitled design (12)" src="https://github.com/user-attachments/assets/43a08e9a-79b2-4472-83ee-b570b0549b9c" />
 ### 16 - AI Email Triage & Auto-Reply System
 <img width="1280" height="769" alt="Untitled design (13)" src="https://github.com/user-attachments/assets/fe41fce0-68bd-47a0-bc60-0edac891558b" />
+### 17 - AI Email Triage — Error Handling & Alerts
+<img width="1280" height="769" alt="Untitled design (14)" src="https://github.com/user-attachments/assets/70a26c3c-e605-4764-bafc-4a8c51e14e8c" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
