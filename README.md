@@ -11,7 +11,9 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 03 | AI-Powered Task Priority & Deadline Reminder Automation | Watches a Google Sheet for new tasks and emails the right reminder based on task priority and deadline | n8n, Google Sheets, Gmail | [03-task-priority-reminder.json](03-task-priority-reminder.json) |
 | 04 | Employee Email Notification & Batch Processing Automation | Reads employees from Google Sheets and sends personalised emails in small batches with a wait step to avoid sending limits | n8n, Google Sheets, Gmail | [04-employee-email-batch-processing.json](04-employee-email-batch-processing.json) |
 | 05 | Automated Price Validation & Update Notification Workflow | Cleans raw price data, validates it, saves it to Google Sheets, emails the update and sends a completion confirmation | n8n, Google Sheets, Gmail, JavaScript | [05-price-validation-update-notification.json](05-price-validation-update-notification.json) |
+| 06 | Contract Signing & Automated Client Onboarding Workflow | Receives a contract-signed event by webhook, emails the client, updates Google Sheets and alerts the team on Slack | n8n, Webhook, Gmail, Google Sheets, Slack | [06-contract-signing-client-onboarding.json](06-contract-signing-client-onboarding.json) |
 ## Workflow Screenshots
+<img width="1280" height="769" alt="Untitled design (3)" src="https://github.com/user-attachments/assets/61683df2-dfc2-419f-8e60-54cd2606c521" />
 
 ### 03 - Task Priority & Deadline Reminder
 
