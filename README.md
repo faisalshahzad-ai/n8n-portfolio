@@ -1,3 +1,35 @@
-# n8n-portfolio
-Ready-to-use sample n8n automation workflows by Faisal Shahzad Naeem. Includes AI agents, AI chatbots, lead qualification, Gmail and Google Sheets automation, task reminders and business process workflows. Import the JSON files into n8n and customize them for your business. Sample / demo projects.
-<img width="1280" height="769" alt="Untitled design" src="https://github.com/user-attachments/assets/a690233c-a989-41b5-bd15-cfbfa8ca0949" />
+# n8n Automation Portfolio
+
+Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-import JSON file. Download it, import it into n8n, connect your own accounts and customize it for your business.
+
+> All projects here are **sample / demo projects**.
+
+## Projects
+
+| No. | Project | What it does | Tools | File |
+|---|---|---|---|---|
+| 03 | AI-Powered Task Priority & Deadline Reminder Automation | Watches a Google Sheet for new tasks and emails the right reminder based on task priority and deadline | n8n, Google Sheets, Gmail | [03-task-priority-reminder.json](03-task-priority-reminder.json) |
+| 04 | Employee Email Notification & Batch Processing Automation | Reads employees from Google Sheets and sends personalised emails in small batches with a wait step to avoid sending limits | n8n, Google Sheets, Gmail | [04-employee-email-batch-processing.json](04-employee-email-batch-processing.json) |
+
+## Workflow Screenshots
+
+### 03 - Task Priority & Deadline Reminder
+
+<img width="1280" height="769" alt="Task priority workflow" src="https://github.com/user-attachments/assets/a690233c-a989-41b5-bd15-cfbfa8ca0949" />
+
+### 04 - Employee Email Batch Processing
+<img width="1280" height="769" alt="Untitled design (1)" src="https://github.com/user-attachments/assets/d3cdeb23-c99b-4ee4-9750-5401f4e3f656" />
+
+
+
+## How to use a workflow
+
+1. Download the `.json` file.
+2. In n8n, click the **⋯** menu, then **Import from file**.
+3. Connect your own Google Sheets and Gmail credentials.
+4. Replace `YOUR_SHEET_ID` with the ID of your own Google Sheet.
+5. Test it, then activate.
+
+## Contact
+
+Available for n8n and AI automation work on Fiverr, Upwork, Freelancer, Guru and PeoplePerHour.
