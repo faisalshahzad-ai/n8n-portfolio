@@ -19,6 +19,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 11 | AI-Powered Email Classification & Automated Response System | Reads new Gmail emails, uses an AI text classifier to sort them into categories such as orders, jobs, complaints, payments, refunds and support, sends an automatic reply, marks the email as read and adds a label | n8n, Gmail, Groq AI, Text Classifier | [11-ai-email-classification-auto-response.json](11-ai-email-classification-auto-response.json) |
 | 12 | AI-Powered Multi-Gmail Email Auto-Reply & Management Automation | Monitors three Gmail accounts at once, uses an AI agent to write a professional reply to each new email, marks the message as read and adds a label to keep every inbox organised | n8n, Gmail, Groq AI Agent | [12-ai-multi-gmail-auto-reply-management.json](12-ai-multi-gmail-auto-reply-management.json) |
 | 13 | AI-Powered Intelligent Email Triage & Auto-Reply Automation | Reads each new Gmail email, uses an AI agent to detect job or personally important messages, and sends a professional automatic reply only to the rest | n8n, Gmail, Groq AI Agent | [13-ai-intelligent-email-triage-auto-reply.json](13-ai-intelligent-email-triage-auto-reply.json) |
+| 14 | Google Maps Business Lead Data Automation | Fetches a Google Maps search results page for a business type and city, removes duplicates, limits the batch, and saves the collected data into Google Sheets | n8n, HTTP Request, JavaScript, Google Sheets | [14-google-maps-business-lead-data-automation.json](14-google-maps-business-lead-data-automation.json) |
 
 ## Workflow Screenshots
 
@@ -60,6 +61,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Untitled design (9)" src="https://github.com/user-attachments/assets/542e14ae-f376-4cc5-9674-e38fbf0eaa48" />
 ### 13 - AI Intelligent Email Triage & Auto Reply
 <img width="1280" height="769" alt="Untitled design (10)" src="https://github.com/user-attachments/assets/9ced59b4-30f5-477e-b83b-7d7293e368c6" />
+### 14 - Google Maps Business Lead Data Automation
+<img width="1280" height="769" alt="Untitled design (11)" src="https://github.com/user-attachments/assets/9fe23a15-6c20-483e-9186-6dd30378d52b" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
