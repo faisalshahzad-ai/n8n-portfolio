@@ -15,6 +15,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 07 | AI-Powered Task Priority & Deadline Notification Automation | Watches a Google Sheet for new tasks and sends a deadline email based on priority: high, medium or low | n8n, Google Sheets, Gmail | [07-task-priority-deadline-notification.json](07-task-priority-deadline-notification.json) |
 | 08 | AI-Powered Weather Intelligence & Business Alert Automation | Fetches live weather data, logs it to Google Sheets, sends alerts for rain, heat, cold, wind, UV and humidity, then uses an AI agent to write a business recommendation report | n8n, WeatherAPI, Groq AI Agent, Gmail, Google Sheets | [08-ai-weather-intelligence-business-alerts.json](08-ai-weather-intelligence-business-alerts.json) |
 | 09 | Employee Email Batch Notification & Processing Automation | Reads employees from Google Sheets, sends personalised emails in small batches with a wait step, then summarizes the run and sends a completion report | n8n, Google Sheets, Gmail | [09-employee-email-batch-summary-report.json](09-employee-email-batch-summary-report.json) |
+| 10 | AI-Powered Multi-Gmail Email Response Automation | Reads incoming emails from multiple Gmail accounts, uses an AI agent to write a professional reply and sends it back to the sender automatically | n8n, Gmail, Groq AI Agent | [10-ai-multi-gmail-email-auto-reply.json](10-ai-multi-gmail-email-auto-reply.json) |
 
 ## Workflow Screenshots
 
@@ -41,7 +42,14 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 ### 08 - AI Weather Intelligence & Business Alerts
 
 <img width="1280" height="769" alt="AI weather intelligence workflow" src="https://github.com/user-attachments/assets/eefbcaeb-6767-4693-9ef4-6500928920e6" />
-<img width="1280" height="769" alt="Untitled design (6)" src="https://github.com/user-attachments/assets/d8ffb57e-32ba-43ee-8b76-c1e31b5d991f" />
+
+### 09 - Employee Email Batch Summary Report
+
+<img width="1280" height="769" alt="Employee email batch summary report workflow" src="https://github.com/user-attachments/assets/d8ffb57e-32ba-43ee-8b76-c1e31b5d991f" />
+
+### 10 - AI Multi-Gmail Email Auto Reply
+
+<img width="1280" height="769" alt="AI multi Gmail email auto reply workflow" src="https://github.com/user-attachments/assets/10f8df00-577d-44dc-89df-02d75b15588a" />
 
 ## How to use a workflow
 
@@ -49,8 +57,9 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 2. In n8n, click the **⋯** menu, then **Import from file**.
 3. Connect your own Google Sheets and Gmail credentials.
 4. Replace `YOUR_SHEET_ID` with the ID of your own Google Sheet.
-5. For the weather workflow, add your own WeatherAPI key and Groq API key.
-6. Test it, then activate.
+5. For the weather and email auto-reply workflows, add your own WeatherAPI key and Groq API key.
+6. Test the email auto-reply workflow with a test Gmail account before connecting a real inbox.
+7. Test it, then activate.
 
 ## Contact
 
