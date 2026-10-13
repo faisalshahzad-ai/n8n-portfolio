@@ -1,0 +1,61 @@
+{
+  "name": "AI Email Triage — Error Handling & Alerts",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        -672,
+        -208
+      ],
+      "id": "70bf8307-a6f6-44af-b449-1548cf6a0309",
+      "name": "Workflow Error Trigger"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "=",
+          "mode": "id"
+        },
+        "text": "=🚨 WORKFLOW ERROR\n\nWorkflow: {{$json.workflow.name}}\nError: {{$json.execution.error.message}}\n\nPlease check the workflow execution and resolve the issue.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.5,
+      "position": [
+        -416,
+        -208
+      ],
+      "id": "63ac403b-8de2-4c69-8bf8-bd218a3342bf",
+      "name": "Send Workflow Error Alert"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Workflow Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send Workflow Error Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "tags": []
+}
