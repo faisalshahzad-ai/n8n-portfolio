@@ -24,6 +24,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 16 | AI Email Triage & Auto-Reply System | Watches incoming Gmail messages, skips newsletters and no-reply senders, classifies each email with AI, creates HubSpot contacts, drafts sales and support replies in Gmail, forwards billing emails, alerts the team on Slack, logs everything to Google Sheets, and sends a daily summary | n8n, Gmail, OpenAI, HubSpot, Slack, Google Sheets | [16-ai-email-triage-auto-reply-system.json](16-ai-email-triage-auto-reply-system.json) |
 | 17 | AI Email Triage — Error Handling & Alerts | Catches failures from the email triage workflow with an Error Trigger and sends an alert to Slack with the workflow name and error message | n8n, Slack | [17-ai-email-triage-error-handling-alerts.json](17-ai-email-triage-error-handling-alerts.json) |
 | 18 | AI Customer Support & Lead Capture Chatbot | Receives customer messages on Telegram, answers them with an AI support agent that has memory and an FAQ lookup in Google Sheets, saves leads in HubSpot, alerts the team on Slack for human handoff, logs conversations, and emails a weekly AI-generated report | n8n, Telegram, OpenRouter, OpenAI, HubSpot, Slack, Google Sheets, Gmail | [18-ai-customer-support-lead-capture-chatbot.json](18-ai-customer-support-lead-capture-chatbot.json) |
+| 19 | AI Agent with Human Approval | Receives a request through a webhook, drafts an email with an AI agent, looks up the contact in HubSpot, asks a human for approval on Slack before sending, and logs the approval activity in Google Sheets | n8n, OpenRouter, OpenAI, HubSpot, Slack, Gmail, Google Sheets | [19-ai-agent-with-human-approval.json](19-ai-agent-with-human-approval.json) |
 
 ## Workflow Screenshots
 
@@ -75,6 +76,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Untitled design (14)" src="https://github.com/user-attachments/assets/70a26c3c-e605-4764-bafc-4a8c51e14e8c" />
 ### 18 - AI Customer Support & Lead Capture Chatbot
 <img width="1280" height="769" alt="Untitled design (15)" src="https://github.com/user-attachments/assets/4ea998b5-f7ed-47c4-850f-0faac52a6460" />
+### 19 - AI Agent with Human Approval
+<img width="1280" height="769" alt="Untitled design (16)" src="https://github.com/user-attachments/assets/2e775fc0-9f41-4978-aa03-6f14cc3d9fba" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
