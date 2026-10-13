@@ -1,0 +1,303 @@
+{
+  "name": "AI Social Media Post Generator",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "AI Social Media Post Generator",
+        "formDescription": "Enter your topic and details to generate and publish an AI-powered social media post.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Topic",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Platform",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Post Type",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Media URL"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -736,
+        -208
+      ],
+      "id": "b4a82cc3-ded5-4122-b423-825288349d05",
+      "name": "On form submission"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create a professional social media post based on the submitted form data.\n\nTopic: {{$json.Topic}}\nPlatform: {{$json.Platform}}\nPost Type: {{$json[\"Post Type\"]}}\nMedia URL: {{$json[\"Media URL\"]}}\n\nWrite only the final post content. Do not mention AI or automation.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -528,
+        -208
+      ],
+      "id": "3b095504-0612-4be2-b5c3-cfdd2cc60caa",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        0
+      ],
+      "id": "301564c6-e1c9-41d7-8301-b3ba430c0287",
+      "name": "OpenRouter Chat Model"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "[https://api.kie.ai/api/v1/jobs/createTask](https://api.kie.ai/api/v1/jobs/createTask)",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_KIE_API_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-image-2-text-to-image\",\n  \"input\": {\n    \"prompt\": \"{{$json.output}}\",\n    \"aspect_ratio\": \"auto\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        192,
+        -208
+      ],
+      "id": "e507bb09-9b70-4adf-a4e7-8c8df1992c7a",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        448,
+        -208
+      ],
+      "id": "df96321e-dd6a-4d3d-aa04-58d4ba5355af",
+      "name": "Wait"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.kie.ai/api/v1/jobs/createTask",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_KIE_API_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-image-2-text-to-image\",\n  \"input\": {\n    \"prompt\": \"{{$json.output}}\",\n    \"aspect_ratio\": \"auto\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -240,
+        16
+      ],
+      "id": "a574c2a7-a811-43f3-9c88-7bde0dfcb6bc",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "resource": "media",
+        "mediaUrl": "="
+      },
+      "type": "@blotato/n8n-nodes-blotato.blotato",
+      "typeVersion": 2,
+      "position": [
+        128,
+        16
+      ],
+      "id": "7ba0c905-5ead-45a8-bb28-1936273ca1b6",
+      "name": "Upload media"
+    },
+    {
+      "parameters": {
+        "accountId": {
+          "__rl": true,
+          "value": "=",
+          "mode": "id"
+        },
+        "postContentText": "=",
+        "options": {}
+      },
+      "type": "@blotato/n8n-nodes-blotato.blotato",
+      "typeVersion": 2,
+      "position": [
+        368,
+        16
+      ],
+      "id": "95cd905d-cd89-4436-9a24-3c985efaf413",
+      "name": "Create post"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "={{$json.output}}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        -176,
+        -208
+      ],
+      "id": "82f035a1-3955-4ca3-b7d4-c3a5aab80356",
+      "name": "Message a model1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Upload media",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload media": {
+      "main": [
+        [
+          {
+            "node": "Create post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "tags": []
+}
