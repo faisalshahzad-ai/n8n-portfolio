@@ -17,6 +17,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 09 | Employee Email Batch Notification & Processing Automation | Reads employees from Google Sheets, sends personalised emails in small batches with a wait step, then summarizes the run and sends a completion report | n8n, Google Sheets, Gmail | [09-employee-email-batch-summary-report.json](09-employee-email-batch-summary-report.json) |
 | 10 | AI-Powered Multi-Gmail Email Response Automation | Reads incoming emails from multiple Gmail accounts, uses an AI agent to write a professional reply and sends it back to the sender automatically | n8n, Gmail, Groq AI Agent | [10-ai-multi-gmail-email-auto-reply.json](10-ai-multi-gmail-email-auto-reply.json) |
 | 11 | AI-Powered Email Classification & Automated Response System | Reads new Gmail emails, uses an AI text classifier to sort them into categories such as orders, jobs, complaints, payments, refunds and support, sends an automatic reply, marks the email as read and adds a label | n8n, Gmail, Groq AI, Text Classifier | [11-ai-email-classification-auto-response.json](11-ai-email-classification-auto-response.json) |
+| 12 | AI-Powered Multi-Gmail Email Auto-Reply & Management Automation | Monitors three Gmail accounts at once, uses an AI agent to write a professional reply to each new email, marks the message as read and adds a label to keep every inbox organised | n8n, Gmail, Groq AI Agent | [12-ai-multi-gmail-auto-reply-management.json](12-ai-multi-gmail-auto-reply-management.json) |
 
 ## Workflow Screenshots
 
@@ -54,6 +55,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 
 ### 11 - AI Email Classification & Auto Response
 <img width="1280" height="769" alt="Untitled design (8)" src="https://github.com/user-attachments/assets/4b75ec5e-02de-429d-93ac-6f362dff56e9" />
+### 12 - AI Multi-Gmail Auto Reply & Management
+<img width="1280" height="769" alt="Untitled design (9)" src="https://github.com/user-attachments/assets/542e14ae-f376-4cc5-9674-e38fbf0eaa48" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
