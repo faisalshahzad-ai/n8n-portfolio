@@ -20,6 +20,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 12 | AI-Powered Multi-Gmail Email Auto-Reply & Management Automation | Monitors three Gmail accounts at once, uses an AI agent to write a professional reply to each new email, marks the message as read and adds a label to keep every inbox organised | n8n, Gmail, Groq AI Agent | [12-ai-multi-gmail-auto-reply-management.json](12-ai-multi-gmail-auto-reply-management.json) |
 | 13 | AI-Powered Intelligent Email Triage & Auto-Reply Automation | Reads each new Gmail email, uses an AI agent to detect job or personally important messages, and sends a professional automatic reply only to the rest | n8n, Gmail, Groq AI Agent | [13-ai-intelligent-email-triage-auto-reply.json](13-ai-intelligent-email-triage-auto-reply.json) |
 | 14 | Google Maps Business Lead Data Automation | Fetches a Google Maps search results page for a business type and city, removes duplicates, limits the batch, and saves the collected data into Google Sheets | n8n, HTTP Request, JavaScript, Google Sheets | [14-google-maps-business-lead-data-automation.json](14-google-maps-business-lead-data-automation.json) |
+| 15 | AI Lead Qualification & Routing System | Receives leads through a webhook, validates them, syncs contacts and deals in HubSpot, scores leads with an AI chain, alerts the sales team on Slack, emails leads, logs them to Google Sheets, and sends a daily lead report | n8n, HubSpot, OpenAI, Slack, Gmail, Google Sheets | [15-ai-lead-qualification-routing-system.json](15-ai-lead-qualification-routing-system.json) |
 
 ## Workflow Screenshots
 
@@ -63,6 +64,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Untitled design (10)" src="https://github.com/user-attachments/assets/9ced59b4-30f5-477e-b83b-7d7293e368c6" />
 ### 14 - Google Maps Business Lead Data Automation
 <img width="1280" height="769" alt="Untitled design (11)" src="https://github.com/user-attachments/assets/9fe23a15-6c20-483e-9186-6dd30378d52b" />
+### 15 - AI Lead Qualification & Routing System
+<img width="1280" height="769" alt="Untitled design (12)" src="https://github.com/user-attachments/assets/43a08e9a-79b2-4472-83ee-b570b0549b9c" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
