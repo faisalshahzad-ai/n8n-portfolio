@@ -53,6 +53,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="AI multi Gmail email auto reply workflow" src="https://github.com/user-attachments/assets/10f8df00-577d-44dc-89df-02d75b15588a" />
 
 ### 11 - AI Email Classification & Auto Response
+<img width="1280" height="769" alt="Untitled design (8)" src="https://github.com/user-attachments/assets/4b75ec5e-02de-429d-93ac-6f362dff56e9" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
