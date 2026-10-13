@@ -13,6 +13,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 05 | Automated Price Validation & Update Notification Workflow | Cleans raw price data, validates it, saves it to Google Sheets, emails the update and sends a completion confirmation | n8n, Google Sheets, Gmail, JavaScript | [05-price-validation-update-notification.json](05-price-validation-update-notification.json) |
 | 06 | Contract Signing & Automated Client Onboarding Workflow | Receives a contract-signed event by webhook, emails the client, updates Google Sheets and alerts the team on Slack | n8n, Webhook, Gmail, Google Sheets, Slack | [06-contract-signing-client-onboarding.json](06-contract-signing-client-onboarding.json) |
 | 07 | AI-Powered Task Priority & Deadline Notification Automation | Watches a Google Sheet for new tasks and sends a deadline email based on priority: high, medium or low | n8n, Google Sheets, Gmail | [07-task-priority-deadline-notification.json](07-task-priority-deadline-notification.json) |
+| 08 | AI-Powered Weather Intelligence & Business Alert Automation | Fetches live weather data, logs it to Google Sheets, sends alerts for rain, heat, cold, wind, UV and humidity, then uses an AI agent to write a business recommendation report | n8n, WeatherAPI, Groq AI Agent, Gmail, Google Sheets | [08-ai-weather-intelligence-business-alerts.json](08-ai-weather-intelligence-business-alerts.json) |
 
 ## Workflow Screenshots
 
@@ -33,9 +34,12 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Contract signing workflow" src="https://github.com/user-attachments/assets/61683df2-dfc2-419f-8e60-54cd2606c521" />
 
 ### 07 - Task Priority & Deadline Notification
-<img width="1280" height="769" alt="Untitled design (4)" src="https://github.com/user-attachments/assets/9b03d2af-0e3c-4a5a-aee5-701dba5ed0a0" />
 
+<img width="1280" height="769" alt="Task priority deadline notification workflow" src="https://github.com/user-attachments/assets/9b03d2af-0e3c-4a5a-aee5-701dba5ed0a0" />
 
+### 08 - AI Weather Intelligence & Business Alerts
+
+<img width="1280" height="769" alt="AI weather intelligence workflow" src="https://github.com/user-attachments/assets/eefbcaeb-6767-4693-9ef4-6500928920e6" />
 
 ## How to use a workflow
 
@@ -43,7 +47,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 2. In n8n, click the **⋯** menu, then **Import from file**.
 3. Connect your own Google Sheets and Gmail credentials.
 4. Replace `YOUR_SHEET_ID` with the ID of your own Google Sheet.
-5. Test it, then activate.
+5. For the weather workflow, add your own WeatherAPI key and Groq API key.
+6. Test it, then activate.
 
 ## Contact
 
