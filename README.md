@@ -28,6 +28,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 20 | AI-Powered Sales Lead Qualification & CRM Automation Agent | Reads each new Gmail message, uses an AI agent to extract lead details and rate the lead as Hot or not, creates the contact in HubSpot, sends a follow-up email, creates a Google Calendar event, and sends a separate sales follow-up for Hot leads | n8n, Gmail, Groq AI Agent, HubSpot API, Google Calendar | [20-ai-sales-lead-qualification-crm-automation-agent.json](20-ai-sales-lead-qualification-crm-automation-agent.json) |
 | 21 | AI Social Media Post Generator | Takes a topic, platform and post type from a web form, writes the post text with an AI agent, generates an image with an AI image API, and is set up to upload the media and publish the post through Blotato | n8n, Form Trigger, OpenRouter, OpenAI, Kie AI, Blotato | [21-ai-social-media-post-generator.json](21-ai-social-media-post-generator.json) |
 | 22 | AI-Powered Gmail Email Response & Opportunity Tracking Automation Agent | Runs on a schedule, checks Gmail messages against a tracking sheet, uses an AI agent to write a reply, sends it, marks the email as read, applies labels, and logs the email details in a Google Sheets opportunity tracker | n8n, Gmail, OpenRouter AI Agent, Google Sheets | [22-ai-gmail-email-response-opportunity-tracking-agent.json](22-ai-gmail-email-response-opportunity-tracking-agent.json) |
+| 23 | AI-Powered WhatsApp Customer Support & Auto-Reply Agent | Receives incoming WhatsApp messages, passes them to an AI agent to write a support reply, and sends the reply back through WhatsApp | n8n, WhatsApp Business, Groq AI Agent | [23-ai-whatsapp-customer-support-auto-reply-agent.json](23-ai-whatsapp-customer-support-auto-reply-agent.json) |
 
 ## Workflow Screenshots
 
@@ -87,6 +88,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Untitled design (18)" src="https://github.com/user-attachments/assets/0267bd76-bf1f-4f3c-a478-0de1b5afea15" />
 ### 22 - AI-Powered Gmail Email Response & Opportunity Tracking Automation Agent
 <img width="1280" height="769" alt="Untitled design (19)" src="https://github.com/user-attachments/assets/1fc26d41-5123-45bb-aa8f-8182a65b68e6" />
+### 23 - AI-Powered WhatsApp Customer Support & Auto-Reply Agent
+<img width="1280" height="769" alt="Untitled design (20)" src="https://github.com/user-attachments/assets/8a0adb63-daf7-416b-9f73-cf1f3f3bcfcf" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
