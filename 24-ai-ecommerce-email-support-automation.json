@@ -1,0 +1,394 @@
+{
+  "name": "AI-Powered E-commerce Email Support Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {
+          "readStatus": "unread"
+        }
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -624,
+        -112
+      ],
+      "id": "8b09f646-8852-45ca-b463-b29fd613bd78",
+      "name": "Gmail Trigger"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        96
+      ],
+      "id": "fb008e48-3d2c-4f22-8e35-6d61ad6673ba",
+      "name": "Groq Chat Model"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Email subject:{{ $json.Subject || \"No subject\" }}\nEmail Body:{{ $json.snippet }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Got it. The classifier should mark an email as \"RESPOND\" whenever the customer has an order/customer-support intent, even if they haven't provided enough information yet. Missing order ID should be handled later by the response agent, not used to reject the email.  # Role You are an email classification agent for an e-commerce business.  # Task Analyze the incoming email and classify it as either:  - RESPOND - DO_NOT_RESPOND  # RESPOND Classify the email as \"RESPOND\" if the sender is asking for help, information, or action related to an order or customer support.  This includes:  - Order status or order information - Shipping, tracking, or delivery information - Order complaints - Damaged, wrong, or missing items - Cancellation requests - Returns, exchanges, or return policy questions - Refund requests - Refund status or refund policy questions - Payment issues related to an order - Any general question about an order or purchase  The customer does NOT need to provide an order ID.  # DO_NOT_RESPOND Classify the email as \"DO_NOT_RESPOND\" if it is not related to an order or customer support.  Examples include:  - Marketing emails - Newsletters - Promotions - Advertisements - Automated system alerts - Internal notifications - Security alerts - Database/server monitoring alerts - Emails unrelated to customer orders - Spam or irrelevant messages  # Important Rules  1. Focus on the customer's intent, not only keywords. 2. If the customer needs help with an order, classify as \"RESPOND\". 3. Do not reject an email just because the order ID is missing. 4. Missing information can be requested later by the response agent. 5. If the email is clearly unrelated to customer/order support, classify it as \"DO_NOT_RESPOND\". 6. Return ONLY one of these two values:    RESPOND    DO_NOT_RESPOND  # Examples  Customer email: \"I want to know the status of my order.\"  Output: RESPOND  Customer email: \"How can I return my order?\"  Output: RESPOND  Customer email: \"My package arrived damaged. What should I do?\"  Output: RESPOND  Customer email: \"I haven't received my order yet.\"  Output: RESPOND  Customer email: \"Can I get a refund for my purchase?\"  Output: RESPOND  Customer email: \"Your database alert has gone above the threshold.\"  Output: DO_NOT_RESPOND  Customer email: \"50% discount on our new service. Buy now!\"  Output: DO_NOT_RESPOND"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -416,
+        -112
+      ],
+      "id": "56acd9da-dea6-4f82-9c0b-065f47ac1110",
+      "name": "Email Classification"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.text }}",
+                    "rightValue": "Respons",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bdd6cd33-2346-48e9-9e22-2a4fb2297d21"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Respons"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "be9e2753-4744-4cf3-acc9-60b44c7aeff5",
+                    "leftValue": "={{ $json.text }}",
+                    "rightValue": "Do-Not-Responsd",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "IGNORE"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -96,
+        -272
+      ],
+      "id": "254babe9-648f-4a10-8b15-497811cde772",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Email subject:{{ $('Gmail Trigger').item.json.Subject }}\nEmail body:{{ $('Gmail Trigger').item.json.snippet }}",
+        "options": {
+          "systemMessage": "# Role\n\nYou are a professional and friendly customer support assistant for an e-commerce store. Your job is to read customer emails, understand their request, and write a helpful, natural, and polite email response.\n\n# Available Tools\n\nYou have access to:\n\n1. Orders Database\n\nUse this tool whenever you need information about a customer's order, including order status, order date, shipping status, delivery information, products, or other order details.\n\n2. Refund & Return Policy\n\nUse this tool whenever the customer asks about refunds, returns, exchanges, eligibility, timelines, or related policies.\n\nOnly use information provided by the email and your tools. Never invent order details, policies, dates, tracking information, or refund information.\n\n# Instructions\n\nUnderstand the customer's actual request before responding."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        176,
+        -288
+      ],
+      "id": "17e05a2b-d903-428a-bda9-b6a830dd665e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        64
+      ],
+      "id": "d558b801-b55b-4162-972b-f9d1bf8209d8",
+      "name": "Groq Chat Model1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        512,
+        48
+      ],
+      "id": "abed1901-3925-4d62-b3e6-3c23cd285041",
+      "name": "Get row(s) in sheet in Google Sheets"
+    },
+    {
+      "parameters": {
+        "operation": "reply",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "emailType": "text",
+        "message": "=",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        528,
+        -288
+      ],
+      "id": "21a8e973-fd09-432f-9eae-1b6022b60cf5",
+      "name": "Reply to a message"
+    },
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        736,
+        -288
+      ],
+      "id": "3027c820-26d8-4ccc-a594-d1d6cc32026c",
+      "name": "Mark a message as read"
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Gmail Trigger').item.json.id }}",
+        "labelIds": [
+          "INBOX"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        944,
+        -288
+      ],
+      "id": "a96c5b9a-71fb-410b-9692-4bbbbe69ef4a",
+      "name": "Add label to message"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": ""
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        336,
+        48
+      ],
+      "id": "9d40fc89-ad0b-42f3-9d2a-2ac99e2c0417",
+      "name": "Get a document in Google Docs"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "email-support"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        160,
+        64
+      ],
+      "id": "8214deee-73e4-4e44-9012-50d3550d4f9b",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Email Classification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Email Classification",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Classification": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Reply to a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply to a message": {
+      "main": [
+        [
+          {
+            "node": "Mark a message as read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark a message as read": {
+      "main": [
+        [
+          {
+            "node": "Add label to message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a document in Google Docs": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "tags": []
+}
