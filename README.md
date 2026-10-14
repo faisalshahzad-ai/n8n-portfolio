@@ -27,6 +27,7 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 | 19 | AI Agent with Human Approval | Receives a request through a webhook, drafts an email with an AI agent, looks up the contact in HubSpot, asks a human for approval on Slack before sending, and logs the approval activity in Google Sheets | n8n, OpenRouter, OpenAI, HubSpot, Slack, Gmail, Google Sheets | [19-ai-agent-with-human-approval.json](19-ai-agent-with-human-approval.json) |
 | 20 | AI-Powered Sales Lead Qualification & CRM Automation Agent | Reads each new Gmail message, uses an AI agent to extract lead details and rate the lead as Hot or not, creates the contact in HubSpot, sends a follow-up email, creates a Google Calendar event, and sends a separate sales follow-up for Hot leads | n8n, Gmail, Groq AI Agent, HubSpot API, Google Calendar | [20-ai-sales-lead-qualification-crm-automation-agent.json](20-ai-sales-lead-qualification-crm-automation-agent.json) |
 | 21 | AI Social Media Post Generator | Takes a topic, platform and post type from a web form, writes the post text with an AI agent, generates an image with an AI image API, and is set up to upload the media and publish the post through Blotato | n8n, Form Trigger, OpenRouter, OpenAI, Kie AI, Blotato | [21-ai-social-media-post-generator.json](21-ai-social-media-post-generator.json) |
+| 22 | AI-Powered Gmail Email Response & Opportunity Tracking Automation Agent | Runs on a schedule, checks Gmail messages against a tracking sheet, uses an AI agent to write a reply, sends it, marks the email as read, applies labels, and logs the email details in a Google Sheets opportunity tracker | n8n, Gmail, OpenRouter AI Agent, Google Sheets | [22-ai-gmail-email-response-opportunity-tracking-agent.json](22-ai-gmail-email-response-opportunity-tracking-agent.json) |
 
 ## Workflow Screenshots
 
@@ -84,6 +85,8 @@ Sample n8n workflows by **Faisal Shahzad Naeem**. Each project is a ready-to-imp
 <img width="1280" height="769" alt="Untitled design (17)" src="https://github.com/user-attachments/assets/16a298da-b65e-49fa-bf30-70e617d05387" />
 ### 21 - AI Social Media Post Generator
 <img width="1280" height="769" alt="Untitled design (18)" src="https://github.com/user-attachments/assets/0267bd76-bf1f-4f3c-a478-0de1b5afea15" />
+### 22 - AI-Powered Gmail Email Response & Opportunity Tracking Automation Agent
+<img width="1280" height="769" alt="Untitled design (19)" src="https://github.com/user-attachments/assets/1fc26d41-5123-45bb-aa8f-8182a65b68e6" />
 
 ![AI email classification and auto response workflow](11-ai-email-classification-auto-response.png)
 
